@@ -11,3 +11,6 @@ If a file type is not recognized, it will be placed in the `others` folder.
 
 ## Example
 Before sorting:
+
+
+After Sorting :
