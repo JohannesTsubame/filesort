@@ -8,14 +8,111 @@ def main():
     base_dir = "./"
 
     file_types = {
-        'images': ['.jpg', '.jpeg', '.png', '.gif'],
-        'documents': ['.pdf', '.docx', '.doc', '.txt', ".xls", ".ppt", '.pptx'],
-        "spreadsheets": [".xls", '.xlsx', '.csv'],
-        'audio': ['.mp3', '.wav', '.aac'],
-        'video': ['.mp4', '.avi', '.mov'],
-        'archives': ['.zip', '.rar', '.tar', '.gz'],
-        'code': ['.py', '.ipynb' , '.js', '.html', '.css', '.java', '.cpp'],
-        'others': []}
+        'Images': [# Common Raster Formats
+                   ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".tif",
+
+                   # Web & Modern Formats
+                   ".webp", ".avif", ".heif", ".heic",
+
+                   # Vector Formats
+                   ".svg", ".eps", ".ai",
+
+                   # RAW Camera Formats (common ones)
+                   ".cr2", ".cr3", ".nef", ".arw", ".orf", ".rw2", ".dng"],
+        'Documents': [# Text Documents
+                      ".txt", ".rtf", ".odt", ".md",
+
+                      # Microsoft Word & Similar
+                      ".doc", ".docx", ".dot", ".dotx",
+
+                      # Microsoft PowerPoint & Similar
+                      ".ppt", ".pptx", ".pps", ".ppsx", ".potx",
+
+                      # Microsoft Excel & Similar
+                      ".xls", ".xlsx", ".xlsm", ".ods",
+
+                      # PDFs & Other Read-Only Docs
+                      ".pdf",
+
+                      # eBooks
+                      ".epub", ".mobi", ".azw3"],
+        "Spreadsheets": [# Microsoft Excel
+                        ".xls", ".xlsx", ".xlsm", ".xlsb", ".xlt", ".xltx", ".xltm",
+
+                        # OpenDocument & LibreOffice
+                        ".ods", ".ots",
+
+                        # Comma/Tab Delimited
+                        ".csv", ".tsv",
+
+                        # Other spreadsheet formats
+                        ".numbers"],
+        'Audio': [# Common Compressed Formats
+                  ".mp3", ".aac", ".ogg", ".wma", ".m4a",
+
+                  # Uncompressed / Lossless Formats
+                  ".wav", ".flac", ".alac", ".aiff", ".aif",
+
+                  # Other / Less Common
+                  ".opus", ".amr", ".mid", ".midi"],
+        'Video': [# Common Formats
+                  ".mp4", ".m4v", ".mov", ".avi", ".wmv", ".flv", ".mkv",
+
+                  # Web & Streaming Formats
+                  ".webm", ".ogv",
+
+                  # Other / Less Common
+                  ".3gp", ".3g2", ".mts", ".m2ts", ".ts", ".vob"],
+        'Archives': [# Common Archive Formats
+                     ".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz",
+
+                     # Disk Image Formats
+                     ".iso", ".img", ".dmg", ".vhd", ".vhdx",
+
+                     # Other / Less Common
+                     ".tgz", ".tbz2", ".lz", ".z"],
+        'Code': [# Web Development
+                ".html", ".htm",
+                ".css",
+                ".js", ".mjs", ".cjs",
+                ".ts", ".tsx",
+                ".php", ".phtml",
+                ".rb",
+                ".aspx", ".cshtml",
+
+                # General-Purpose Programming
+                ".py", ".pyw", ".ipynb",
+                ".java",
+                ".c", ".h",
+                ".cpp", ".cc", ".cxx", ".hpp", ".hxx",
+                ".cs",
+                ".go",
+                ".rs",
+                ".kt", ".kts",
+                ".swift",
+                ".m", ".mm",
+
+                # Scripting Languages
+                ".sh",
+                ".bash",
+                ".ps1",
+                ".pl", ".pm",
+                ".lua",
+
+                # Data Science / Analytics
+                ".r", ".R",
+                ".m",  # MATLAB
+                ".jl",
+                ".sas",
+
+                # Markup & Configuration
+                ".yml", ".yaml",
+                ".json",
+                ".xml",
+                ".toml",
+                ".ini",
+                ".md"],
+        'Others': []}
 
     #if Dir does not exist
     def mkdir(base_dir, directories):
