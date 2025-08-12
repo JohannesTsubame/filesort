@@ -25,12 +25,6 @@ def main():
                       # Microsoft Word & Similar
                       ".doc", ".docx", ".dot", ".dotx",
 
-                      # Microsoft PowerPoint & Similar
-                      ".ppt", ".pptx", ".pps", ".ppsx", ".potx",
-
-                      # Microsoft Excel & Similar
-                      ".xls", ".xlsx", ".xlsm", ".ods",
-
                       # PDFs & Other Read-Only Docs
                       ".pdf",
 
@@ -47,6 +41,14 @@ def main():
 
                         # Other spreadsheet formats
                         ".numbers"],
+        'Presentations': [# Microsoft PowerPoint
+                          ".ppt", ".pptx", ".pptm", ".pot", ".potx", ".potm",
+
+                          # OpenDocument & LibreOffice
+                          ".odp", ".otp",
+
+                          # Other presentation formats
+                          ".key"],
         'Audio': [# Common Compressed Formats
                   ".mp3", ".aac", ".ogg", ".wma", ".m4a",
 
