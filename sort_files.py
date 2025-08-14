@@ -2,11 +2,33 @@
 
 import os
 import shutil
+import argparse
+
+#if Dir does not exist
+def mkdir(base_dir, directories):
+    for dir in directories:
+        path = os.path.join(base_dir, dir)
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+def sort_files(base_dir, allowed_categories, all_file_types):
+    for file in os.listdir(base_dir):
+        path = os.path.join(base_dir, file)
+
+        # Skip directories and hidden files
+        if os.path.isdir(path) or file.startswith('.'):
+            continue
+
+        file_ext = os.path.splitext(file)[1].lower()
+
+        for category, extensions in all_file_types.items():
+            if category in allowed_categories and file_ext in extensions:
+                target_dir = os.path.join(base_dir, category)
+                shutil.move(path, target_dir)
+                break
 
 
-def main():   
-    base_dir = "./"
-
+def main():
     file_types = {
         'Images': [# Common Raster Formats
                    ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".tif",
@@ -116,46 +138,42 @@ def main():
                 ".md"],
         'Others': []}
 
-    #if Dir does not exist
-    def mkdir(base_dir, directories):
-        for dir in directories:
-            path = os.path.join(base_dir, dir)
-            if not os.path.exists(path):
-                os.makedirs(path)
+    #Map CLI flags to category names
+    flag_map = {
+    "i": "Images",
+    "d": "Documents",
+    "s": "Spreadsheets",
+    "p": "Presentations",
+    "a": "Audio",
+    "v": "Video",
+    "ar": "Archives",
+    "c": "Code"
+    }
 
-    def sort_files(base_dir, file_types):
-        for file in os.listdir(base_dir):
-            path = os.path.join(base_dir, file)
+    #Parse Command
+    parser = argparse.ArgumentParser(description="Sort files into selected categories.")
+    parser.add_argument("directory", nargs="?", default=".", help="Directory to sort")
+    for flag, name in flag_map.items():
+        parser.add_argument(f"-{flag}", action="store_true", help=f"Include {name} files")
+    args = parser.parse_args()
 
-            # Skip directories
-            if os.path.isdir(path):
-                continue
-            
-            # Skip hidden files
-            if file.startswith('.'):
-                continue
-                
-            # Check file extension
-            file_ext = os.path.splitext(file)[1].lower()
+    base_dir = os.path.abspath(args.directory)
 
-            #Move file to the appropriate directory
-            moved = False
-            for dir_name, extensions in file_types.items():
-                if file_ext in extensions:
-                    target_dir = os.path.join(base_dir, dir_name)
-                    shutil.move(path, target_dir)
-                    moved = True
-                    break
-            
-            # If it doesn't match any category, move it to "others"
-            if not moved:
-                target_dir = os.path.join(base_dir, 'others')
-                shutil.move(path, target_dir)
+    selected_categories = [category for flag, category in flag_map.items() if getattr(args, flag)]
 
-            
-    mkdir(base_dir, file_types.keys())
-    sort_files(base_dir, file_types)
+    if not selected_categories:
+        # No flags → process all categories
+        mkdir(base_dir, file_types.keys())
+        sort_files(base_dir, file_types)
+        print("Sorted all categories.")
+    else:
+        mkdir(base_dir, selected_categories)
+        sort_files(base_dir, selected_categories, file_types)
+        print(f"Sorted only: {', '.join(selected_categories)}")
+
+
+    print(f"Files sorted in {base_dir}.")
+
 
 if __name__ == "__main__":
     main()
-    print("Files Sorted")
