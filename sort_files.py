@@ -25,11 +25,23 @@ def sort_files(base_dir, allowed_categories, all_file_types):
             if category in allowed_categories and file_ext in extensions:
                 target_dir = os.path.join(base_dir, category)
                 shutil.move(path, target_dir)
-                break
+                break   
 
 
 def main():
     file_types = {
+        'Application' : [
+                        # Windows executables and installers
+                        ".exe", ".msi", ".bat", ".cmd",
+
+                        # macOS applications and packages
+                        ".app", ".dmg", ".pkg",
+
+                        # Linux / Unix executables and installers
+                        ".bin", ".run", ".sh", ".deb", ".rpm",
+
+                        # Cross-platform / other executable formats
+                        ".jar", ".apk", ".xpi"],
         'Images': [# Common Raster Formats
                    ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".tif",
 
@@ -137,20 +149,21 @@ def main():
                 ".ini",
                 ".md"],
         'Others': []}
-
+    
     #Map CLI flags to category names
     flag_map = {
+    "a": "Application",
     "i": "Images",
     "d": "Documents",
     "s": "Spreadsheets",
     "p": "Presentations",
-    "a": "Audio",
+    "au": "Audio",
     "v": "Video",
     "ar": "Archives",
     "c": "Code"
     }
 
-    #Parse Command
+    #Parse Command 
     parser = argparse.ArgumentParser(description="Sort files into selected categories.")
     parser.add_argument("directory", nargs="?", default=".", help="Directory to sort")
     for flag, name in flag_map.items():
@@ -162,9 +175,10 @@ def main():
     selected_categories = [category for flag, category in flag_map.items() if getattr(args, flag)]
 
     if not selected_categories:
-        # No flags → process all categories
-        mkdir(base_dir, file_types.keys())
-        sort_files(base_dir, file_types)
+        #No flags → process all categories
+        selected_categories = list(file_types.keys())
+        mkdir(base_dir, selected_categories)
+        sort_files(base_dir, selected_categories, file_types)
         print("Sorted all categories.")
     else:
         mkdir(base_dir, selected_categories)
