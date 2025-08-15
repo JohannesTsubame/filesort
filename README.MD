@@ -13,4 +13,4 @@ If a file type is not recognized, it will be placed in the `others` folder.
 Before sorting:
 
 
-After Sorting :
+After Sorting :gi
