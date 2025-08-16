@@ -4,7 +4,7 @@ with open('README.MD', 'r') as fh:
     description = fh.read()
 
 setup(
-    name='sortfiles',
+    name='sortfile',
     version='0.1.0',
     packages=find_packages(),
     author='Johann',
