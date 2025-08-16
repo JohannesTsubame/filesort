@@ -1,9 +1,0 @@
-pyproject.toml
-setup.py
-sortfile/__init__.py
-sortfile/main.py
-sortfiles.egg-info/PKG-INFO
-sortfiles.egg-info/SOURCES.txt
-sortfiles.egg-info/dependency_links.txt
-sortfiles.egg-info/entry_points.txt
-sortfiles.egg-info/top_level.txt

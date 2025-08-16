@@ -1,0 +1,10 @@
+README.MD
+pyproject.toml
+setup.py
+filesort/__init__.py
+filesort/main.py
+filesort.egg-info/PKG-INFO
+filesort.egg-info/SOURCES.txt
+filesort.egg-info/dependency_links.txt
+filesort.egg-info/entry_points.txt
+filesort.egg-info/top_level.txt
