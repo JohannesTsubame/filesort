@@ -1,0 +1,2 @@
+[console_scripts]
+sortfiles = sortfiles.main:main
