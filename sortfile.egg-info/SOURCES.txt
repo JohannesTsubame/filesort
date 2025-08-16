@@ -1,7 +1,7 @@
 pyproject.toml
 setup.py
-sortfile/__init__.py
-sortfile/main.py
+sortfiles/__init__.py
+sortfiles/main.py
 sortfiles.egg-info/PKG-INFO
 sortfiles.egg-info/SOURCES.txt
 sortfiles.egg-info/dependency_links.txt

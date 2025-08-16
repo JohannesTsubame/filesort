@@ -1,5 +1,8 @@
 from setuptools import setup, find_packages
 
+with open('README.MD', 'r') as fh:
+    description = fh.read()
+
 setup(
     name='sortfiles',
     version='0.1.0',
@@ -9,4 +12,11 @@ setup(
         'argparse',
         'shutil',
         'os',
-    ])
+    ],
+    entry_points={
+        'console_scripts': [
+            'sortfiles=sortfiles.sortfiles:main',
+        ],
+    },
+    long_description=description,
+    long_description_content_type='text/markdown',)
