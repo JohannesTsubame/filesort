@@ -27,7 +27,6 @@ def sort_files(base_dir, allowed_categories, all_file_types):
                 shutil.move(path, target_dir)
                 break   
 
-
 def main():
     file_types = {
         'Application' : [
@@ -179,15 +178,9 @@ def main():
         selected_categories = list(file_types.keys())
         mkdir(base_dir, selected_categories)
         sort_files(base_dir, selected_categories, file_types)
-        print("Sorted all categories.")
     else:
         mkdir(base_dir, selected_categories)
         sort_files(base_dir, selected_categories, file_types)
-        print(f"Sorted only: {', '.join(selected_categories)}")
-
-
-    print(f"Files sorted in {base_dir}.")
-
 
 if __name__ == "__main__":
     main()
