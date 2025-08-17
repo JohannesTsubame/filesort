@@ -17,6 +17,7 @@ After Sorting :
 ![Alt text](reference/after.png?raw=true "After") 
 
 ## How to Install
+Open terminal and type `pip install catfile`
 
 ## How to Use
 - Open terminal in the directory you want to sort
@@ -24,7 +25,7 @@ After Sorting :
 - `directories` (optional) use to determined wich directories you want the script to run. If empty will default into the current directory
 - `flags` (optional) use to determine wich directories you want to create. If empty will create all directories 
 ### Flags
-flags determined wich directories will be created, you can combine multiple flags by typing `catfile -flags`. 
+flags determined wich directories will be created, you can combine multiple flags by typing one flag after the other. 
 - `-a` create a directory for applications only
 - `-i` create a directory for images only
 - `-d` create a directory for documents only

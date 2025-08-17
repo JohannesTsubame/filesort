@@ -1,4 +1,4 @@
-README.MD
+README.md
 pyproject.toml
 setup.py
 catfile/__init__.py
