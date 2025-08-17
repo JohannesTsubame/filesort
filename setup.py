@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('README.MD', 'r') as fh:
+with open('README.md', 'r') as fh:
     description = fh.read()
 
 setup(
