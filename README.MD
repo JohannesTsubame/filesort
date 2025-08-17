@@ -1,4 +1,4 @@
-# filesort
+# catfile
 
 A simple Python script that automatically organizes files in a directory into folders based on their file types.  
 If a file type is not recognized, it will be placed in the `others` folder.
@@ -20,11 +20,11 @@ After Sorting :
 
 ## How to Use
 - Open terminal in the directory you want to sort
-- Type `filesort `
+- Type `catfile `
 - `directories` (optional) use to determined wich directories you want the script to run. If empty will default into the current directory
 - `flags` (optional) use to determine wich directories you want to create. If empty will create all directories 
 ### Flags
-flags determined wich directories will be created, you can combine multiple flags by typing `filesort -flags`. 
+flags determined wich directories will be created, you can combine multiple flags by typing `catfile -flags`. 
 - `-a` create a directory for applications only
 - `-i` create a directory for images only
 - `-d` create a directory for documents only
@@ -36,7 +36,7 @@ flags determined wich directories will be created, you can combine multiple flag
 - `-c` → create a directory for Code / source files only
 ### You can combine multiple arguments for example:
 ```bash
-filesort Downloads/ -a -c -d
+catfile Downloads/ -a -c -d
 ```
 Will sort files in the Downloads directories that match the directories created wich is `applicaton`, `code`, and `documents` 
 
