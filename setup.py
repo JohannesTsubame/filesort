@@ -4,7 +4,7 @@ with open('README.MD', 'r') as fh:
     description = fh.read()
 
 setup(
-    name='filesort',
+    name='catfile',
     version='0.1.0',
     packages=find_packages(),
     author='Johann',
@@ -15,7 +15,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'filesort=filesort.main:main',
+            'catfile=catfile.main:main',
         ],
     },
     long_description=description,

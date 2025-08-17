@@ -1,2 +1,0 @@
-[console_scripts]
-filesort = filesort.main:main
